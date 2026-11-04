@@ -3,6 +3,7 @@ import express from "express";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import OpenAI from "openai";
+import { createClient } from "@supabase/supabase-js";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -13,6 +14,13 @@ const ADMIN_USER = process.env.ADMIN_USER || "markai";
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-6-astra";
+// Supabase connection
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
+
+const supabase = SUPABASE_URL && SUPABASE_ANON_KEY
+  ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+  : null;
 
 if (!ADMIN_PASSWORD || ADMIN_PASSWORD.length < 16) {
   console.error("Állíts be legalább 16 karakteres ADMIN_PASSWORD értéket a .env fájlban.");
@@ -44,6 +52,36 @@ app.use("/api/", rateLimit({ windowMs: 60_000, limit: 20, standardHeaders: "draf
 
 app.get("/api/status", (_req, res) => {
   res.json({ ok: true, aiConfigured: Boolean(OPENAI_API_KEY), model: OPENAI_MODEL });
+});
+// Supabase connection test
+app.get("/api/supabase-status", async (_req, res) => {
+  if (!supabase) {
+    return res.status(503).json({
+      connected: false,
+      error: "Supabase environment variables are missing."
+    });
+  }
+
+  try {
+    const { error } = await supabase
+      .from("profiles")
+      .select("id")
+      .limit(1);
+
+    if (error) throw error;
+
+    return res.json({
+      connected: true,
+      message: "MARKAI successfully connected to Supabase."
+    });
+  } catch (error) {
+    console.error("Supabase connection failed:", error.message);
+
+    return res.status(502).json({
+      connected: false,
+      error: "Supabase connection test failed."
+    });
+  }
 });
 
 app.post("/api/ai", async (req, res) => {
