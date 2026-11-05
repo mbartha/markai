@@ -10,14 +10,14 @@
 <title>MARKAI — AI Business Manager</title>
 <style>
 :root{--bg:#0b1020;--panel:#121a2d;--panel2:#172238;--line:#293650;--text:#edf2ff;--muted:#9aa8c2;--gold:#e7bd68;--blue:#72a7ff;--violet:#b69aff;--green:#69d5a4;--red:#ff8f9b}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% -10%,#26365b 0,transparent 32%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;background:radial-gradient(circle at 80% -10%,#26365b 0,transparent 32%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
 button,input,textarea,select{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.side{background:#0d1425;border-right:1px solid var(--line);padding:24px 16px;display:flex;flex-direction:column;gap:22px}.brand{font-size:25px;font-weight:850;letter-spacing:2px;color:var(--gold);padding:0 12px}.brand small{display:block;font-size:10px;letter-spacing:2.5px;color:var(--muted);font-weight:600}.nav{display:grid;gap:6px}.nav button{background:transparent;border:0;color:var(--muted);text-align:left;padding:12px;border-radius:11px}.nav button.active,.nav button:hover{background:#1b2943;color:var(--text)}.nav span{display:inline-block;width:27px}.side-note{margin-top:auto;background:#151f34;border:1px solid var(--line);padding:14px;border-radius:14px;color:var(--muted);font-size:12px}.main{padding:28px;max-width:1500px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:26px}.eyebrow{color:var(--gold);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700}h1{font-size:28px;margin:4px 0}h2{font-size:18px;margin:0 0 14px}.sub{color:var(--muted)}.top-actions{display:flex;gap:9px;align-items:center}.btn{border:1px solid var(--line);background:#19243a;color:var(--text);padding:10px 14px;border-radius:10px}.btn.primary{background:linear-gradient(110deg,#e7bd68,#c99142);border:0;color:#1b1720;font-weight:800}.btn:disabled{opacity:.45;cursor:not-allowed}.grid{display:grid;gap:16px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:18px}.card{background:linear-gradient(145deg,rgba(23,34,56,.96),rgba(17,26,44,.96));border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 10px 35px #0002}.stat-label{color:var(--muted);font-size:13px}.stat-value{font-size:27px;font-weight:800;margin:7px 0}.positive{color:var(--green)}.gold{color:var(--gold)}.two{grid-template-columns:1.25fr .85fr}.three{grid-template-columns:repeat(3,1fr)}.bar-wrap{height:155px;display:flex;align-items:end;gap:10px;padding:12px 4px 0}.bar-col{flex:1;text-align:center;color:var(--muted);font-size:11px}.bar{background:linear-gradient(0deg,#557fd2,#9d8df3);border-radius:7px 7px 2px 2px;min-height:6px;margin-bottom:7px}.assistant{border-color:#65558d;background:linear-gradient(145deg,#211d3d,#151e34)}.assistant-head{display:flex;gap:12px;align-items:center;margin-bottom:14px}.orb{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#e7bd68,#8c79ed);display:grid;place-items:center;color:#111;font-weight:900}.chatlog{background:#0e1729;border:1px solid var(--line);border-radius:12px;padding:12px;min-height:100px;max-height:220px;overflow:auto;color:#cbd5e8;font-size:13px;margin-bottom:12px}.msg{padding:8px 10px;background:#1a2943;border-radius:9px;margin:6px 0}.chatrow{display:flex;gap:8px}.chatrow input{flex:1;min-width:0;background:#0d1628;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:11px}.section{display:none}.section.active{display:block}.section-title{margin:8px 0 18px}.list{display:grid;gap:10px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px;background:#101a2d;border:1px solid var(--line);border-radius:11px}.row strong{display:block}.row small{color:var(--muted)}.pill{font-size:11px;padding:4px 8px;border-radius:99px;background:#27334a;color:#c9d6ed;white-space:nowrap}.pill.pending{background:#493b20;color:#f2cf83}.pill.ok{background:#173d35;color:#8ce0b9}.form{display:grid;gap:10px}.form input,.form textarea,.form select{width:100%;background:#0d1628;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:11px}.form textarea{min-height:90px;resize:vertical}.muted{color:var(--muted)}.notice{padding:12px 14px;border:1px solid #6d592d;background:#30291b;color:#f1d69b;border-radius:12px;font-size:13px;margin:14px 0}.actions{display:flex;gap:8px;flex-wrap:wrap}.empty{padding:22px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}.footer{color:#75839c;font-size:11px;margin-top:22px}.lang{min-width:70px}.toast{position:fixed;right:20px;bottom:20px;background:#1c2d43;border:1px solid #58719a;padding:12px 16px;border-radius:12px;display:none;z-index:5}
 
 .auth-screen{min-height:100vh;display:grid;place-items:center;padding:22px;background:radial-gradient(circle at 80% -10%,#26365b 0,transparent 35%),var(--bg)}
 .auth-card{width:min(100%,460px);background:linear-gradient(145deg,rgba(23,34,56,.98),rgba(17,26,44,.98));border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 20px 60px #0005}
-.auth-brand{font-size:28px;font-weight:850;letter-spacing:3px;color:var(--gold);text-align:center}.auth-sub{text-align:center;color:var(--muted);margin:4px 0 22px}.auth-tabs{display:flex;gap:8px;margin-bottom:18px}.auth-tabs button{flex:1}.auth-card label{display:grid;gap:6px;color:var(--muted);font-size:13px}.auth-card input{width:100%;background:#0d1628;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:12px}.auth-card .form{gap:12px}.auth-message{min-height:22px;color:var(--gold);font-size:13px;white-space:pre-wrap}.auth-links{display:flex;justify-content:space-between;gap:12px;margin-top:14px}.text-btn{border:0;background:transparent;color:var(--blue);padding:4px 0;text-decoration:underline}.user-email{color:var(--muted);font-size:12px;max-width:220px;overflow-wrap:anywhere}
+.auth-brand{font-size:28px;font-weight:850;letter-spacing:3px;color:var(--gold);text-align:center}.auth-sub{text-align:center;color:var(--muted);margin:4px 0 22px}.auth-tabs{display:flex;gap:8px;margin-bottom:18px}.auth-tabs button{flex:1}.auth-card label{display:grid;gap:6px;color:var(--muted);font-size:13px}.auth-card input{width:100%;background:#0d1628;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:12px}.auth-card .form{gap:12px}.auth-message{min-height:22px;color:var(--gold);font-size:13px;white-space:pre-wrap}.auth-links{display:flex;justify-content:space-between;gap:12px;margin-top:14px}.text-btn{border:0;background:transparent;color:var(--blue);padding:4px 0;text-decoration:underline}.user-email{color:var(--muted);font-size:12px;max-width:220px;overflow-wrap:anywhere}.conversation-layout{display:grid;grid-template-columns:minmax(190px,250px) minmax(0,1fr);gap:14px}.conversation-sidebar{align-self:start}.conversation-list{display:grid;gap:8px;margin-top:12px;max-height:480px;overflow:auto}.conversation-item{width:100%;text-align:left;background:#101a2d;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:10px;overflow-wrap:anywhere}.conversation-item.active{border-color:var(--gold);background:#202b41}.conversation-item span{display:block;color:var(--muted);font-size:11px;margin-top:4px}.assistant-chatlog{min-height:320px;max-height:58vh}.chat-message-error{border-color:#75414a;color:#ffd4d8}
 
-@media(max-width:900px){.app{grid-template-columns:1fr}.side{padding:12px;position:sticky;top:0;z-index:3;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:4px 8px}.brand small{display:none}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap;padding:9px}.side-note{display:none}.main{padding:18px}.stats{grid-template-columns:repeat(2,1fr)}.two,.three{grid-template-columns:1fr}}
+@media(max-width:900px){.conversation-layout{grid-template-columns:1fr}.conversation-list{max-height:220px}.app{grid-template-columns:1fr}.side{padding:12px;position:sticky;top:0;z-index:3;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:4px 8px}.brand small{display:none}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap;padding:9px}.side-note{display:none}.main{padding:18px}.stats{grid-template-columns:repeat(2,1fr)}.two,.three{grid-template-columns:1fr}}
 @media(max-width:480px){.top{align-items:flex-start;flex-direction:column}.stats{gap:9px}.card{padding:14px}.stat-value{font-size:22px}.nav button{font-size:12px}}
 </style>
 </head>
@@ -64,7 +64,7 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}.app{display:gri
   <button data-page="approvals"><span>✓</span><i data-hu="Jóváhagyások" data-en="Approvals">Jóváhagyások</i></button>
   <button data-page="finance"><span>▤</span><i data-hu="Pénzügyek" data-en="Finance">Pénzügyek</i></button>
  </nav>
- <div class="side-note"> <b style="color:var(--gold)">DEMÓ MÓD</b><br>A felület bemutatóadatokat használ. Éles értékesítéshez szerver, AI-kulcs és fizetési integráció szükséges.</div>
+ <div class="side-note"> <b style="color:var(--gold)">MARKAI</b><br>Az AI-asszisztens aktív. A pénzügyi és értékesítési mutatók egyelőre bemutatóadatok.</div>
 </aside>
 <main class="main">
 <header class="top">
@@ -81,15 +81,26 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}.app{display:gri
  </div>
  <div class="grid two">
   <div class="card"><h2 data-hu="Bevételi áttekintés" data-en="Revenue overview">Bevételi áttekintés</h2><div class="muted" data-hu="Utolsó 6 hónap · szemléltető adatok" data-en="Last 6 months · sample data">Utolsó 6 hónap · szemléltető adatok</div><div class="bar-wrap"><div class="bar-col"><div class="bar" style="height:35%"></div>Jún</div><div class="bar-col"><div class="bar" style="height:48%"></div>Júl</div><div class="bar-col"><div class="bar" style="height:43%"></div>Aug</div><div class="bar-col"><div class="bar" style="height:65%"></div>Szep</div><div class="bar-col"><div class="bar" style="height:78%"></div>Okt</div><div class="bar-col"><div class="bar" style="height:94%"></div>Nov</div></div></div>
-  <div class="card assistant"><div class="assistant-head"><div class="orb">M</div><div><h2 style="margin:0">MARKAI Brain</h2><div class="muted" data-hu="AI asszisztens · demó mód" data-en="AI assistant · demo mode">AI asszisztens · demó mód</div></div></div><div class="chatlog" id="dashChat"><div class="msg">Szia! Ötleteket, termékterveket és marketinganyagokat tudok előkészíteni. A külső műveletekhez jóváhagyás szükséges.</div></div><div class="chatrow"><input id="dashPrompt" placeholder="Mit készítsek elő?"><button class="btn primary" id="dashSend">Küldés</button></div></div>
+  <div class="card assistant"><div class="assistant-head"><div class="orb">M</div><div><h2 style="margin:0">MARKAI Brain</h2><div class="muted" data-hu="AI-asszisztens · mentett beszélgetések" data-en="AI assistant · saved conversations">AI-asszisztens · mentett beszélgetések</div></div></div><div class="chatlog" id="dashChat"><div class="msg">Szia! Ötleteket, termékterveket és marketinganyagokat tudok előkészíteni. A külső műveletekhez jóváhagyás szükséges.</div></div><div class="chatrow"><input id="dashPrompt" placeholder="Mit készítsek elő?"><button class="btn primary" id="dashSend">Küldés</button></div></div>
  </div>
  <div class="notice">Fontos: a havi 1 000 000 Ft árbevétel cél, nem garantált eredmény. A számok jelenleg kizárólag bemutatóadatok.</div>
 </section>
 
 <section class="section" id="assistant">
- <div class="section-title"><h2>MARKAI Brain</h2><div class="muted" data-hu="Írd le, milyen üzleti feladatot készítsen elő az AI." data-en="Describe the business task you want the AI to prepare.">Írd le, milyen üzleti feladatot készítsen elő az AI.</div></div>
- <div class="card assistant"><div class="chatlog" id="fullChat"><div class="msg">Üdv! Ebben a prototípusban minta-válaszokat adok. Éles AI-modell csatlakoztatása a szerveroldali beállítások után lehetséges.</div></div><div class="form"><textarea id="fullPrompt" placeholder="Például: Készíts egy magyar nyelvű pénzügyi tervező sablon termékkoncepciót, árazással és reklámszöveggel."></textarea><div class="actions"><button class="btn primary" id="fullSend">Feladat előkészítése</button><button class="btn" id="ideaBtn">Ötletet kérek</button></div></div></div>
- <div class="notice">Az asszisztens ebben a letölthető demóban nem kapcsolódik külső AI-szolgáltatáshoz, és nem hajt végre valódi műveleteket.</div>
+ <div class="section-title"><h2>MARKAI Brain</h2><div class="muted" data-hu="A beszélgetéseid automatikusan mentődnek a saját fiókodba. Csak te férsz hozzájuk." data-en="Your conversations are saved to your account. Only you can access them.">A beszélgetéseid automatikusan mentődnek a saját fiókodba. Csak te férsz hozzájuk.</div></div>
+ <div class="conversation-layout">
+  <aside class="card conversation-sidebar">
+   <button class="btn primary" id="newConversationBtn" type="button" style="width:100%">+ Új beszélgetés</button>
+   <h2 style="margin:18px 0 8px">Korábbi beszélgetések</h2>
+   <div class="conversation-list" id="conversationList"><div class="empty">A beszélgetések betöltése…</div></div>
+  </aside>
+  <div class="card assistant">
+   <div class="assistant-head"><div class="orb">M</div><div><h2 style="margin:0">MARKAI Brain</h2><div class="muted" id="activeConversationLabel">Új beszélgetés</div></div></div>
+   <div class="chatlog assistant-chatlog" id="fullChat"><div class="msg">Szia! Milyen üzleti feladatban segíthetek?</div></div>
+   <div class="form"><textarea id="fullPrompt" placeholder="Például: Készíts egy magyar nyelvű pénzügyi tervező sablon termékkoncepciót, árazással és reklámszöveggel."></textarea><div class="actions"><button class="btn primary" id="fullSend">Feladat előkészítése</button><button class="btn" id="ideaBtn">Ötletet kérek</button></div></div>
+  </div>
+ </div>
+ <div class="notice">A korábbi beszélgetéseket a MARKAI a bejelentkezett fiókodhoz menti. Más felhasználó a saját beszélgetéseidet nem láthatja.</div>
 </section>
 
 <section class="section" id="products">
@@ -124,17 +135,20 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}.app{display:gri
  </div>
  <div class="card" style="margin-top:16px"><h2 data-hu="Kifizetési szabályok" data-en="Payout rules">Kifizetési szabályok</h2><div class="list"><div class="row"><div><strong data-hu="Bankszámla csatlakoztatása" data-en="Connect bank account">Bankszámla csatlakoztatása</strong><small data-hu="Nincs csatlakoztatva" data-en="Not connected">Nincs csatlakoztatva</small></div><span class="pill pending">Nincs beállítva</span></div><div class="row"><div><strong data-hu="Kifizetések jóváhagyása" data-en="Payout approval">Kifizetések jóváhagyása</strong><small data-hu="Mindig kézi jóváhagyással" data-en="Manual approval required">Mindig kézi jóváhagyással</small></div><span class="pill ok">Bekapcsolva</span></div></div></div>
 </section>
-<div class="footer">MARKAI prototype v0.1 · Bemutatófelület · Nincs valódi AI-, webshop-, banki vagy fizetési kapcsolat.</div>
+<div class="footer">MARKAI · AI-asszisztens · A beszélgetések a bejelentkezett fiókhoz mentődnek. A pénzügyi mutatók bemutatóadatok.</div>
 </main></div><div class="toast" id="toast"></div>
 <script type="module">
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 let supabase=null, currentSession=null;
+let currentConversationId=null, conversationItems=[], activeMessages=[], replyInProgress=false;
 const authScreen=$('#authScreen'), mainApp=$('#mainApp');
 function authMessage(message){$('#authMessage').textContent=message||''}
 function showAuthForm(name){
   ['loginForm','signupForm','resetRequestForm','newPasswordForm'].forEach(id=>$('#'+id).hidden=id!==name);
   $('#authTabs').hidden=name==='resetRequestForm'||name==='newPasswordForm';
+  $('#showLogin').classList.toggle('primary',name==='loginForm');
+  $('#showSignup').classList.toggle('primary',name==='signupForm');
   $('#forgotPassword').hidden=name!=='loginForm';
   $('#backToLogin').hidden=name==='loginForm';
   authMessage('');
@@ -159,7 +173,19 @@ async function initializeAuth(){
     if(error) throw error;
     renderSession(session);
     if(window.location.hash.includes('type=recovery')) showAuthForm('newPasswordForm');
-    supabase.auth.onAuthStateChange((_event,nextSession)=>renderSession(nextSession));
+    supabase.auth.onAuthStateChange((_event,nextSession)=>{
+      renderSession(nextSession);
+      if(nextSession?.user){
+        setTimeout(async()=>{
+          await loadConversations();
+          if(!currentConversationId && conversationItems.length) await openConversation(conversationItems[0].id);
+          else renderMessages();
+        },0);
+      }else{
+        currentConversationId=null; conversationItems=[]; activeMessages=[];
+        renderConversationList(); renderMessages();
+      }
+    });
   }catch(error){
     authScreen.style.display='grid'; mainApp.style.display='none';
     authMessage('A bejelentkezési rendszer nem tölthető be: '+(error.message||'Ismeretlen hiba'));
@@ -217,77 +243,127 @@ $('#quickApproval').onclick=()=>showPage('approvals');
 function updateApprovals(){let n=pending.length;$('#approvalCount').textContent=n;$('#pendingStat').textContent=n;$('#approvalList').innerHTML=n?pending.map(p=>`<div class="row"><div><strong>${p.title}</strong><small>${p.desc}</small></div><div class="actions"><button class="btn primary" onclick="approve(${p.id})">Jóváhagyás</button><button class="btn" onclick="reject(${p.id})">Elutasítás</button></div></div>`).join(''):'<div class="empty">Nincs függő jóváhagyás.</div>'}
 function approve(id){pending=pending.filter(p=>p.id!==id);updateApprovals();toast('Demó: jóváhagyás rögzítve. Külső művelet nem történt.')}
 function reject(id){pending=pending.filter(p=>p.id!==id);updateApprovals();toast('Demó: elutasítás rögzítve.')}
-async function reply(prompt,target){
- if(!prompt.trim())return;
- target.innerHTML+=`<div class="msg"><b>${lang==='hu'?'Te':'You'}:</b> ${escapeHtml(prompt)}</div>`;
- const loading=document.createElement('div'); loading.className='msg'; loading.textContent=lang==='hu'?'MARKAI dolgozik…':'MARKAI is thinking…'; target.appendChild(loading); target.scrollTop=target.scrollHeight;
- try{
-   const token=currentSession?.access_token;
-   if(!token) throw new Error('A művelethez jelentkezz be újra.');
-   const res=await fetch('/api/ai',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify({prompt,language:lang})});
-   const data=await res.json();
-   if(!res.ok) throw new Error(data.error||'API hiba');
-   loading.innerHTML='<b>MARKAI:</b> '+escapeHtml(data.text||'Nem érkezett válasz.');
- }catch(err){
-   loading.innerHTML='<b>MARKAI:</b> '+escapeHtml((lang==='hu'?'Az AI-kapcsolat most nem érhető el: ':'AI connection unavailable: ')+err.message+' '+(lang==='hu'?'Ellenőrizd a szerver beállításait.':'Check the server configuration.'));
+function renderMessages(){
+ const welcome='<div class="msg">Szia! Milyen üzleti feladatban segíthetek?</div>';
+ const html=activeMessages.map(message=>{
+   const who=message.role==='user'?'Te':'MARKAI';
+   const content=escapeHtml(String(message.content||'')).replace(/\n/g,'<br>');
+   return `<div class="msg"> <b>${who}:</b> ${content}</div>`;
+ }).join('');
+ ['#dashChat','#fullChat'].forEach(selector=>{
+   const box=$(selector); if(!box)return;
+   box.innerHTML=html||welcome;
+   box.scrollTop=box.scrollHeight;
+ });
+ const active=conversationItems.find(item=>item.id===currentConversationId);
+ $('#activeConversationLabel').textContent=active?.title||'Új beszélgetés';
+ renderConversationList();
+}
+function renderConversationList(){
+ const list=$('#conversationList'); if(!list)return;
+ list.replaceChildren();
+ if(!conversationItems.length){
+   const empty=document.createElement('div'); empty.className='empty'; empty.textContent='Még nincs mentett beszélgetés.'; list.append(empty); return;
  }
- target.scrollTop=target.scrollHeight;
+ conversationItems.forEach(item=>{
+   const button=document.createElement('button'); button.type='button';
+   button.className='conversation-item'+(item.id===currentConversationId?' active':'');
+   button.addEventListener('click',()=>openConversation(item.id));
+   const title=document.createElement('strong'); title.textContent=item.title||'Új beszélgetés';
+   const date=document.createElement('span');
+   date.textContent=item.updated_at?new Date(item.updated_at).toLocaleString('hu-HU'):'Mentett beszélgetés';
+   button.append(title,date); list.append(button);
+ });
+}
+async function loadConversations(){
+ if(!supabase||!currentSession?.user)return;
+ const {data,error}=await supabase.from('conversations')
+   .select('id,title,updated_at').order('updated_at',{ascending:false}).limit(100);
+ if(error){console.error('Conversation list load failed:',error.message);toast('A beszélgetéslista betöltése nem sikerült: '+error.message);return;}
+ conversationItems=data||[]; renderConversationList();
+}
+async function openConversation(id){
+ if(!supabase||!currentSession?.user)return;
+ const {data,error}=await supabase.from('messages')
+   .select('id,role,content,created_at')
+   .eq('conversation_id',id).eq('user_id',currentSession.user.id)
+   .order('created_at',{ascending:true}).limit(500);
+ if(error){toast('A beszélgetés betöltése nem sikerült: '+error.message);return;}
+ currentConversationId=id; activeMessages=data||[];
+ renderMessages(); showPage('assistant');
+}
+function startNewConversation(){
+ currentConversationId=null; activeMessages=[];
+ renderMessages(); showPage('assistant'); $('#fullPrompt').focus();
+}
+async function saveChatMessage(role,content){
+ if(!supabase||!currentSession?.user)throw new Error('A mentéshez be kell jelentkezned.');
+ const userId=currentSession.user.id;
+ if(!currentConversationId){
+   if(role!=='user')throw new Error('Előbb küldj egy üzenetet az új beszélgetés indításához.');
+   const title=content.replace(/\s+/g,' ').trim().slice(0,70)||'Új beszélgetés';
+   const {data,error}=await supabase.from('conversations')
+     .insert({user_id:userId,title}).select('id,title,updated_at').single();
+   if(error)throw new Error('A beszélgetés létrehozása nem sikerült: '+error.message);
+   currentConversationId=data.id;
+   conversationItems=[data,...conversationItems.filter(item=>item.id!==data.id)];
+ }
+ const {error}=await supabase.from('messages').insert({
+   conversation_id:currentConversationId,user_id:userId,role,content
+ });
+ if(error)throw new Error('Az üzenet mentése nem sikerült: '+error.message);
+ activeMessages.push({role,content,created_at:new Date().toISOString()});
+ renderMessages();
+ const {error:updateError}=await supabase.from('conversations')
+   .update({updated_at:new Date().toISOString()})
+   .eq('id',currentConversationId).eq('user_id',userId);
+ if(updateError)console.warn('Conversation timestamp update failed:',updateError.message);
+ await loadConversations();
+}
+async function reply(prompt){
+ const text=String(prompt||'').trim();
+ if(!text||replyInProgress)return;
+ if(!currentSession?.user){toast('A küldéshez jelentkezz be.');return;}
+ replyInProgress=true;
+ ['#dashSend','#fullSend'].forEach(id=>{const button=$(id);if(button)button.disabled=true;});
+ let loaders=[];
+ try{
+   await saveChatMessage('user',text);
+   loaders=['#dashChat','#fullChat'].map(selector=>{
+     const box=$(selector), el=document.createElement('div');
+     el.className='msg'; el.textContent='MARKAI dolgozik…'; box.append(el); box.scrollTop=box.scrollHeight; return el;
+   });
+   const token=currentSession?.access_token;
+   if(!token)throw new Error('A munkamenet lejárt. Jelentkezz be újra.');
+   const res=await fetch('/api/ai',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify({prompt:text,language:lang})});
+   const data=await res.json();
+   if(!res.ok)throw new Error(data.error||'API hiba');
+   loaders.forEach(el=>el.remove()); loaders=[];
+   await saveChatMessage('assistant',data.text||'Nem érkezett szöveges válasz.');
+ }catch(err){
+   loaders.forEach(el=>el.remove());
+   const errorText='Hiba: '+(err.message||'Ismeretlen hiba');
+   activeMessages.push({role:'assistant',content:errorText}); renderMessages();
+   toast(errorText);
+ }finally{
+   replyInProgress=false;
+   ['#dashSend','#fullSend'].forEach(id=>{const button=$(id);if(button)button.disabled=false;});
+ }
 }
 function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-$('#dashSend').onclick=()=>{reply($('#dashPrompt').value,$('#dashChat'));$('#dashPrompt').value=''};
+$('#dashSend').onclick=()=>{const value=$('#dashPrompt').value;$('#dashPrompt').value='';reply(value)};
 $('#dashPrompt').addEventListener('keydown',e=>{if(e.key==='Enter')$('#dashSend').click()});
-$('#fullSend').onclick=()=>{reply($('#fullPrompt').value,$('#fullChat'));$('#fullPrompt').value=''};
+$('#fullSend').onclick=()=>{const value=$('#fullPrompt').value;$('#fullPrompt').value='';reply(value)};
 $('#ideaBtn').onclick=()=>{$('#fullPrompt').value='Adj 3 alacsony költségű digitális termékötletet magyar mikrovállalkozóknak, célközönséggel, árazási hipotézissel és első marketinglépéssel.'};
+$('#newConversationBtn').onclick=startNewConversation;
 $$('.prepare').forEach(b=>b.onclick=()=>{let id=Date.now();pending.push({id,title:b.dataset.name+' – termékterv',desc:'AI által előkészítendő termékkoncepció. Ellenőrzés és jóváhagyás szükséges.'});updateApprovals();toast('Előkészítési kérés hozzáadva a jóváhagyásokhoz.');});
 $('#langBtn').onclick=()=>{lang=lang==='hu'?'en':'hu';$('#langBtn').textContent=lang==='hu'?'EN':'HU';$$('[data-hu]').forEach(el=>el.textContent=el.dataset[lang]);$$('input[placeholder]').forEach(el=>{if(el.id==='dashPrompt')el.placeholder=lang==='hu'?'Mit készítsek elő?':'What should I prepare?'});};
 updateApprovals();
+if(currentSession?.user){
+  await loadConversations();
+  if(conversationItems.length) await openConversation(conversationItems[0].id);
+  else renderMessages();
+}
 if ('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
-</script>
- <script>
-(function () {
-  const formIds = [
-    'loginForm',
-    'signupForm',
-    'resetRequestForm',
-    'newPasswordForm'
-  ];
-
-  function showForm(activeId) {
-    formIds.forEach(function (id) {
-      const form = document.getElementById(id);
-      if (!form) return;
-
-      const active = id === activeId;
-      form.hidden = !active;
-      form.style.display = active ? 'grid' : 'none';
-    });
-
-    const login = document.getElementById('showLogin');
-    const signup = document.getElementById('showSignup');
-    const forgot = document.getElementById('forgotPassword');
-    const back = document.getElementById('backToLogin');
-
-    if (login) login.classList.toggle('primary', activeId === 'loginForm');
-    if (signup) signup.classList.toggle('primary', activeId === 'signupForm');
-    if (forgot) forgot.hidden = activeId !== 'loginForm';
-    if (back) back.hidden = activeId === 'loginForm';
-
-    const tabs = document.getElementById('authTabs');
-    if (tabs) {
-      tabs.hidden = activeId === 'resetRequestForm' ||
-                    activeId === 'newPasswordForm';
-    }
-  }
-
-  document.getElementById('showLogin').addEventListener('click', function () {
-    showForm('loginForm');
-  });
-
-  document.getElementById('showSignup').addEventListener('click', function () {
-    showForm('signupForm');
-  });
-
-  showForm('loginForm');
-})();
 </script>
 </body></html>
