@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1020">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>MARKAI — AI Business Manager</title>
+<style>
+:root{--bg:#0b1020;--panel:#121a2d;--panel2:#172238;--line:#293650;--text:#edf2ff;--muted:#9aa8c2;--gold:#e7bd68;--blue:#72a7ff;--violet:#b69aff;--green:#69d5a4;--red:#ff8f9b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% -10%,#26365b 0,transparent 32%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.side{background:#0d1425;border-right:1px solid var(--line);padding:24px 16px;display:flex;flex-direction:column;gap:22px}.brand{font-size:25px;font-weight:850;letter-spacing:2px;color:var(--gold);padding:0 12px}.brand small{display:block;font-size:10px;letter-spacing:2.5px;color:var(--muted);font-weight:600}.nav{display:grid;gap:6px}.nav button{background:transparent;border:0;color:var(--muted);text-align:left;padding:12px;border-radius:11px}.nav button.active,.nav button:hover{background:#1b2943;color:var(--text)}.nav span{display:inline-block;width:27px}.side-note{margin-top:auto;background:#151f34;border:1px solid var(--line);padding:14px;border-radius:14px;color:var(--muted);font-size:12px}.main{padding:28px;max-width:1500px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:26px}.eyebrow{color:var(--gold);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700}h1{font-size:28px;margin:4px 0}h2{font-size:18px;margin:0 0 14px}.sub{color:var(--muted)}.top-actions{display:flex;gap:9px;align-items:center}.btn{border:1px solid var(--line);background:#19243a;color:var(--text);padding:10px 14px;border-radius:10px}.btn.primary{background:linear-gradient(110deg,#e7bd68,#c99142);border:0;color:#1b1720;font-weight:800}.btn:disabled{opacity:.45;cursor:not-allowed}.grid{display:grid;gap:16px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:18px}.card{background:linear-gradient(145deg,rgba(23,34,56,.96),rgba(17,26,44,.96));border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 10px 35px #0002}.stat-label{color:var(--muted);font-size:13px}.stat-value{font-size:27px;font-weight:800;margin:7px 0}.positive{color:var(--green)}.gold{color:var(--gold)}.two{grid-template-columns:1.25fr .85fr}.three{grid-template-columns:repeat(3,1fr)}.bar-wrap{height:155px;display:flex;align-items:end;gap:10px;padding:12px 4px 0}.bar-col{flex:1;text-align:center;color:var(--muted);font-size:11px}.bar{background:linear-gradient(0deg,#557fd2,#9d8df3);border-radius:7px 7px 2px 2px;min-height:6px;margin-bottom:7px}.assistant{border-color:#65558d;background:linear-gradient(145deg,#211d3d,#151e34)}.assistant-head{display:flex;gap:12px;align-items:center;margin-bottom:14px}.orb{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#e7bd68,#8c79ed);display:grid;place-items:center;color:#111;font-weight:900}.chatlog{background:#0e1729;border:1px solid var(--line);border-radius:12px;padding:12px;min-height:100px;max-height:220px;overflow:auto;color:#cbd5e8;font-size:13px;margin-bottom:12px}.msg{padding:8px 10px;background:#1a2943;border-radius:9px;margin:6px 0}.chatrow{display:flex;gap:8px}.chatrow input{flex:1;min-width:0;background:#0d1628;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:11px}.section{display:none}.section.active{display:block}.section-title{margin:8px 0 18px}.list{display:grid;gap:10px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px;background:#101a2d;border:1px solid var(--line);border-radius:11px}.row strong{display:block}.row small{color:var(--muted)}.pill{font-size:11px;padding:4px 8px;border-radius:99px;background:#27334a;color:#c9d6ed;white-space:nowrap}.pill.pending{background:#493b20;color:#f2cf83}.pill.ok{background:#173d35;color:#8ce0b9}.form{display:grid;gap:10px}.form input,.form textarea,.form select{width:100%;background:#0d1628;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:11px}.form textarea{min-height:90px;resize:vertical}.muted{color:var(--muted)}.notice{padding:12px 14px;border:1px solid #6d592d;background:#30291b;color:#f1d69b;border-radius:12px;font-size:13px;margin:14px 0}.actions{display:flex;gap:8px;flex-wrap:wrap}.empty{padding:22px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:12px}.footer{color:#75839c;font-size:11px;margin-top:22px}.lang{min-width:70px}.toast{position:fixed;right:20px;bottom:20px;background:#1c2d43;border:1px solid #58719a;padding:12px 16px;border-radius:12px;display:none;z-index:5}
+
+.auth-screen{min-height:100vh;display:grid;place-items:center;padding:22px;background:radial-gradient(circle at 80% -10%,#26365b 0,transparent 35%),var(--bg)}
+.auth-card{width:min(100%,460px);background:linear-gradient(145deg,rgba(23,34,56,.98),rgba(17,26,44,.98));border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 20px 60px #0005}
+.auth-brand{font-size:28px;font-weight:850;letter-spacing:3px;color:var(--gold);text-align:center}.auth-sub{text-align:center;color:var(--muted);margin:4px 0 22px}.auth-tabs{display:flex;gap:8px;margin-bottom:18px}.auth-tabs button{flex:1}.auth-card label{display:grid;gap:6px;color:var(--muted);font-size:13px}.auth-card input{width:100%;background:#0d1628;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:12px}.auth-card .form{gap:12px}.auth-message{min-height:22px;color:var(--gold);font-size:13px;white-space:pre-wrap}.auth-links{display:flex;justify-content:space-between;gap:12px;margin-top:14px}.text-btn{border:0;background:transparent;color:var(--blue);padding:4px 0;text-decoration:underline}.user-email{color:var(--muted);font-size:12px;max-width:220px;overflow-wrap:anywhere}
+
+@media(max-width:900px){.app{grid-template-columns:1fr}.side{padding:12px;position:sticky;top:0;z-index:3;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:4px 8px}.brand small{display:none}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap;padding:9px}.side-note{display:none}.main{padding:18px}.stats{grid-template-columns:repeat(2,1fr)}.two,.three{grid-template-columns:1fr}}
+@media(max-width:480px){.top{align-items:flex-start;flex-direction:column}.stats{gap:9px}.card{padding:14px}.stat-value{font-size:22px}.nav button{font-size:12px}}
+</style>
+</head>
+<body>
+<div class="auth-screen" id="authScreen">
+ <div class="auth-card">
+  <div class="auth-brand">MARKAI</div>
+  <div class="auth-sub">YOUR AI. YOUR BUSINESS.</div>
+  <div class="auth-tabs" id="authTabs">
+   <button class="btn primary" id="showLogin" type="button">Bejelentkezés</button>
+   <button class="btn" id="showSignup" type="button">Regisztráció</button>
+  </div>
+  <form class="form" id="loginForm">
+   <label>E-mail-cím<input id="loginEmail" type="email" autocomplete="email" required></label>
+   <label>Jelszó<input id="loginPassword" type="password" autocomplete="current-password" minlength="8" required></label>
+   <button class="btn primary" type="submit">Bejelentkezés</button>
+  </form>
+  <form class="form" id="signupForm" hidden>
+   <label>Teljes név<input id="signupName" type="text" autocomplete="name" maxlength="100" required></label>
+   <label>E-mail-cím<input id="signupEmail" type="email" autocomplete="email" required></label>
+   <label>Jelszó (legalább 8 karakter)<input id="signupPassword" type="password" autocomplete="new-password" minlength="8" required></label>
+   <button class="btn primary" type="submit">Fiók létrehozása</button>
+  </form>
+  <form class="form" id="resetRequestForm" hidden>
+   <label>Regisztrált e-mail-cím<input id="resetEmail" type="email" autocomplete="email" required></label>
+   <button class="btn primary" type="submit">Jelszó-visszaállító e-mail küldése</button>
+  </form>
+  <form class="form" id="newPasswordForm" hidden>
+   <label>Új jelszó<input id="newPassword" type="password" autocomplete="new-password" minlength="8" required></label>
+   <button class="btn primary" type="submit">Új jelszó mentése</button>
+  </form>
+  <div class="auth-links"><button class="text-btn" id="forgotPassword" type="button">Elfelejtetted a jelszavad?</button><button class="text-btn" id="backToLogin" type="button" hidden>Vissza a belépéshez</button></div>
+  <div class="auth-message" id="authMessage" role="status" aria-live="polite"></div>
+ </div>
+</div>
+<div class="app" id="mainApp" style="display:none">
+<aside class="side">
+ <div class="brand">MARKAI<small>YOUR AI. YOUR BUSINESS.</small></div>
+ <nav class="nav" id="nav">
+  <button class="active" data-page="dashboard"><span>▦</span><i data-hu="Áttekintés" data-en="Overview">Áttekintés</i></button>
+  <button data-page="assistant"><span>✦</span><i data-hu="AI asszisztens" data-en="AI assistant">AI asszisztens</i></button>
+  <button data-page="products"><span>◇</span><i data-hu="Digitális termékek" data-en="Digital products">Digitális termékek</i></button>
+  <button data-page="services"><span>◈</span><i data-hu="AI-szolgáltatások" data-en="AI services">AI-szolgáltatások</i></button>
+  <button data-page="approvals"><span>✓</span><i data-hu="Jóváhagyások" data-en="Approvals">Jóváhagyások</i></button>
+  <button data-page="finance"><span>▤</span><i data-hu="Pénzügyek" data-en="Finance">Pénzügyek</i></button>
+ </nav>
+ <div class="side-note"> <b style="color:var(--gold)">DEMÓ MÓD</b><br>A felület bemutatóadatokat használ. Éles értékesítéshez szerver, AI-kulcs és fizetési integráció szükséges.</div>
+</aside>
+<main class="main">
+<header class="top">
+ <div><div class="eyebrow">AI BUSINESS CONTROL CENTER</div><h1 id="pageTitle">Üdv a MARKAI-ban!</h1><div class="sub" id="pageSub">A vállalkozásod központi vezérlőpultja.</div></div>
+ <div class="top-actions"><span class="user-email" id="userEmail"></span><button class="btn lang" id="langBtn">EN</button><button class="btn" id="quickApproval">✓ <span data-hu="Jóváhagyások" data-en="Approvals">Jóváhagyások</span> <b id="approvalCount">2</b></button><button class="btn" id="logoutBtn" type="button">Kilépés</button></div>
+</header>
+
+<section class="section active" id="dashboard">
+ <div class="grid stats">
+  <div class="card"><div class="stat-label" data-hu="Havi árbevétel (demó)" data-en="Monthly revenue (demo)">Havi árbevétel (demó)</div><div class="stat-value gold">124 500 Ft</div><div class="positive">↑ 12,4% <span class="muted" data-hu="az előző hónaphoz képest" data-en="vs. last month">az előző hónaphoz képest</span></div></div>
+  <div class="card"><div class="stat-label" data-hu="Rendelések" data-en="Orders">Rendelések</div><div class="stat-value">18</div><div class="muted" data-hu="Ebben a hónapban" data-en="This month">Ebben a hónapban</div></div>
+  <div class="card"><div class="stat-label" data-hu="Aktív ügyfelek" data-en="Active clients">Aktív ügyfelek</div><div class="stat-value">7</div><div class="muted" data-hu="Demó adat" data-en="Demo data">Demó adat</div></div>
+  <div class="card"><div class="stat-label" data-hu="Jóváhagyásra vár" data-en="Awaiting approval">Jóváhagyásra vár</div><div class="stat-value" id="pendingStat">2</div><div class="pill pending" data-hu="A te döntésed szükséges" data-en="Your decision required">A te döntésed szükséges</div></div>
+ </div>
+ <div class="grid two">
+  <div class="card"><h2 data-hu="Bevételi áttekintés" data-en="Revenue overview">Bevételi áttekintés</h2><div class="muted" data-hu="Utolsó 6 hónap · szemléltető adatok" data-en="Last 6 months · sample data">Utolsó 6 hónap · szemléltető adatok</div><div class="bar-wrap"><div class="bar-col"><div class="bar" style="height:35%"></div>Jún</div><div class="bar-col"><div class="bar" style="height:48%"></div>Júl</div><div class="bar-col"><div class="bar" style="height:43%"></div>Aug</div><div class="bar-col"><div class="bar" style="height:65%"></div>Szep</div><div class="bar-col"><div class="bar" style="height:78%"></div>Okt</div><div class="bar-col"><div class="bar" style="height:94%"></div>Nov</div></div></div>
+  <div class="card assistant"><div class="assistant-head"><div class="orb">M</div><div><h2 style="margin:0">MARKAI Brain</h2><div class="muted" data-hu="AI asszisztens · demó mód" data-en="AI assistant · demo mode">AI asszisztens · demó mód</div></div></div><div class="chatlog" id="dashChat"><div class="msg">Szia! Ötleteket, termékterveket és marketinganyagokat tudok előkészíteni. A külső műveletekhez jóváhagyás szükséges.</div></div><div class="chatrow"><input id="dashPrompt" placeholder="Mit készítsek elő?"><button class="btn primary" id="dashSend">Küldés</button></div></div>
+ </div>
+ <div class="notice">Fontos: a havi 1 000 000 Ft árbevétel cél, nem garantált eredmény. A számok jelenleg kizárólag bemutatóadatok.</div>
+</section>
+
+<section class="section" id="assistant">
+ <div class="section-title"><h2>MARKAI Brain</h2><div class="muted" data-hu="Írd le, milyen üzleti feladatot készítsen elő az AI." data-en="Describe the business task you want the AI to prepare.">Írd le, milyen üzleti feladatot készítsen elő az AI.</div></div>
+ <div class="card assistant"><div class="chatlog" id="fullChat"><div class="msg">Üdv! Ebben a prototípusban minta-válaszokat adok. Éles AI-modell csatlakoztatása a szerveroldali beállítások után lehetséges.</div></div><div class="form"><textarea id="fullPrompt" placeholder="Például: Készíts egy magyar nyelvű pénzügyi tervező sablon termékkoncepciót, árazással és reklámszöveggel."></textarea><div class="actions"><button class="btn primary" id="fullSend">Feladat előkészítése</button><button class="btn" id="ideaBtn">Ötletet kérek</button></div></div></div>
+ <div class="notice">Az asszisztens ebben a letölthető demóban nem kapcsolódik külső AI-szolgáltatáshoz, és nem hajt végre valódi műveleteket.</div>
+</section>
+
+<section class="section" id="products">
+ <div class="section-title"><h2 data-hu="Digitális termékek" data-en="Digital products">Digitális termékek</h2><div class="muted" data-hu="Termékötletek és előkészített ajánlatok." data-en="Product ideas and prepared offers.">Termékötletek és előkészített ajánlatok.</div></div>
+ <div class="grid three">
+  <div class="card"><span class="pill ok">ÖTLET</span><h2 style="margin-top:12px">Heti pénzügyi tervező</h2><p class="muted">Szerkeszthető költségvetési sablon magánszemélyeknek.</p><b>3 990 Ft</b><div class="actions" style="margin-top:14px"><button class="btn primary prepare" data-name="Heti pénzügyi tervező">Előkészítés</button></div></div>
+  <div class="card"><span class="pill ok">ÖTLET</span><h2 style="margin-top:12px">30 napos tartalomnaptár</h2><p class="muted">Posztötletek és tervező kisvállalkozásoknak.</p><b>5 990 Ft</b><div class="actions" style="margin-top:14px"><button class="btn primary prepare" data-name="30 napos tartalomnaptár">Előkészítés</button></div></div>
+  <div class="card"><span class="pill ok">ÖTLET</span><h2 style="margin-top:12px">Kisvállalkozói indulócsomag</h2><p class="muted">Ajánlat-, ügyfél- és feladatkövető sablonok.</p><b>8 990 Ft</b><div class="actions" style="margin-top:14px"><button class="btn primary prepare" data-name="Kisvállalkozói indulócsomag">Előkészítés</button></div></div>
+ </div>
+</section>
+
+<section class="section" id="services">
+ <div class="section-title"><h2 data-hu="AI-szolgáltatások" data-en="AI services">AI-szolgáltatások</h2><div class="muted" data-hu="Csomagötletek magyar kisvállalkozásoknak." data-en="Service package ideas for Hungarian small businesses.">Csomagötletek magyar kisvállalkozásoknak.</div></div>
+ <div class="grid three">
+  <div class="card"><h2>Social Start</h2><p class="muted">8 posztötlet, szöveg és havi tartalomterv.</p><b>29 900 Ft / hó</b><p class="muted">Tervezett csomag</p></div>
+  <div class="card"><h2>Content Pro</h2><p class="muted">16 poszt, 4 rövid videó forgatókönyv és kampányötlet.</p><b>59 900 Ft / hó</b><p class="muted">Tervezett csomag</p></div>
+  <div class="card"><h2>Business Plus</h2><p class="muted">Tartalomterv, hirdetésszöveg és havi riport.</p><b>99 900 Ft / hó</b><p class="muted">Tervezett csomag</p></div>
+ </div>
+ <div class="notice">A csomagok árai tesztelendő javaslatok. Értékesítés előtt pontosítani kell a teljesítést, kapacitást és szerződési feltételeket.</div>
+</section>
+
+<section class="section" id="approvals">
+ <div class="section-title"><h2 data-hu="Jóváhagyási központ" data-en="Approval center">Jóváhagyási központ</h2><div class="muted" data-hu="Külső közzététel, költés vagy ügyfélnek küldés előtt mindig te döntesz." data-en="You decide before external publishing, spending or sending to customers.">Külső közzététel, költés vagy ügyfélnek küldés előtt mindig te döntesz.</div></div>
+ <div class="list" id="approvalList"></div>
+</section>
+
+<section class="section" id="finance">
+ <div class="section-title"><h2 data-hu="Pénzügyi központ" data-en="Finance center">Pénzügyi központ</h2><div class="muted" data-hu="Átlátható pénzügyi követés – a demó nem kapcsolódik bankszámlához." data-en="Financial overview — this demo is not connected to a bank account.">Átlátható pénzügyi követés – a demó nem kapcsolódik bankszámlához.</div></div>
+ <div class="grid two">
+  <div class="card"><div class="stat-label">Havi árbevételi cél</div><div class="stat-value gold">1 000 000 Ft</div><div class="muted">Tervezési cél, nem előrejelzés.</div></div>
+  <div class="card"><div class="stat-label">Demó bevétel</div><div class="stat-value">124 500 Ft</div><div class="muted">Nem valódi tranzakció.</div></div>
+ </div>
+ <div class="card" style="margin-top:16px"><h2 data-hu="Kifizetési szabályok" data-en="Payout rules">Kifizetési szabályok</h2><div class="list"><div class="row"><div><strong data-hu="Bankszámla csatlakoztatása" data-en="Connect bank account">Bankszámla csatlakoztatása</strong><small data-hu="Nincs csatlakoztatva" data-en="Not connected">Nincs csatlakoztatva</small></div><span class="pill pending">Nincs beállítva</span></div><div class="row"><div><strong data-hu="Kifizetések jóváhagyása" data-en="Payout approval">Kifizetések jóváhagyása</strong><small data-hu="Mindig kézi jóváhagyással" data-en="Manual approval required">Mindig kézi jóváhagyással</small></div><span class="pill ok">Bekapcsolva</span></div></div></div>
+</section>
+<div class="footer">MARKAI prototype v0.1 · Bemutatófelület · Nincs valódi AI-, webshop-, banki vagy fizetési kapcsolat.</div>
+</main></div><div class="toast" id="toast"></div>
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+let supabase=null, currentSession=null;
+const authScreen=$('#authScreen'), mainApp=$('#mainApp');
+function authMessage(message){$('#authMessage').textContent=message||''}
+function showAuthForm(name){
+  ['loginForm','signupForm','resetRequestForm','newPasswordForm'].forEach(id=>$('#'+id).hidden=id!==name);
+  $('#authTabs').hidden=name==='resetRequestForm'||name==='newPasswordForm';
+  $('#forgotPassword').hidden=name!=='loginForm';
+  $('#backToLogin').hidden=name==='loginForm';
+  authMessage('');
+}
+function renderSession(session){
+  currentSession=session;
+  const signedIn=Boolean(session?.user);
+  authScreen.style.display=signedIn?'none':'grid';
+  mainApp.style.display=signedIn?'grid':'none';
+  $('#userEmail').textContent=signedIn?(session.user.email||'') : '';
+  if(!signedIn && !window.location.hash.includes('type=recovery')) showAuthForm('loginForm');
+}
+async function initializeAuth(){
+  try{
+    const configResponse=await fetch('/api/config');
+    const config=await configResponse.json();
+    if(!configResponse.ok) throw new Error(config.error||'A Supabase konfiguráció nem érhető el.');
+    supabase=createClient(config.supabaseUrl,config.supabaseAnonKey,{
+      auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}
+    });
+    const {data:{session},error}=await supabase.auth.getSession();
+    if(error) throw error;
+    renderSession(session);
+    if(window.location.hash.includes('type=recovery')) showAuthForm('newPasswordForm');
+    supabase.auth.onAuthStateChange((_event,nextSession)=>renderSession(nextSession));
+  }catch(error){
+    authScreen.style.display='grid'; mainApp.style.display='none';
+    authMessage('A bejelentkezési rendszer nem tölthető be: '+(error.message||'Ismeretlen hiba'));
+  }
+}
+$('#showLogin').addEventListener('click',()=>showAuthForm('loginForm'));
+$('#showSignup').addEventListener('click',()=>showAuthForm('signupForm'));
+$('#forgotPassword').addEventListener('click',()=>{ $('#resetEmail').value=$('#loginEmail').value; showAuthForm('resetRequestForm'); });
+$('#backToLogin').addEventListener('click',()=>showAuthForm('loginForm'));
+$('#loginForm').addEventListener('submit',async event=>{
+  event.preventDefault(); if(!supabase)return;
+  const button=$('#loginForm button[type=submit]'); button.disabled=true; authMessage('Bejelentkezés…');
+  try{const {error}=await supabase.auth.signInWithPassword({email:$('#loginEmail').value.trim(),password:$('#loginPassword').value}); if(error)throw error; authMessage('Sikeres bejelentkezés.');}
+  catch(error){authMessage(error.message||'A bejelentkezés nem sikerült.');}
+  finally{button.disabled=false;}
+});
+$('#signupForm').addEventListener('submit',async event=>{
+  event.preventDefault(); if(!supabase)return;
+  const button=$('#signupForm button[type=submit]'); button.disabled=true; authMessage('Fiók létrehozása…');
+  try{
+    const {data,error}=await supabase.auth.signUp({
+      email:$('#signupEmail').value.trim(), password:$('#signupPassword').value,
+      options:{data:{full_name:$('#signupName').value.trim()},emailRedirectTo:window.location.origin}
+    });
+    if(error)throw error;
+    if(data.session) authMessage('A fiók elkészült, bejelentkeztünk.');
+    else authMessage('A regisztráció sikerült. Nyisd meg a megadott e-mail-címre érkező megerősítő linket, majd jelentkezz be.');
+  }catch(error){authMessage(error.message||'A regisztráció nem sikerült.');}
+  finally{button.disabled=false;}
+});
+$('#resetRequestForm').addEventListener('submit',async event=>{
+  event.preventDefault(); if(!supabase)return;
+  const button=$('#resetRequestForm button[type=submit]'); button.disabled=true; authMessage('E-mail küldése…');
+  try{const {error}=await supabase.auth.resetPasswordForEmail($('#resetEmail').value.trim(),{redirectTo:window.location.origin});if(error)throw error;authMessage('Ha a címhez tartozik fiók, elküldtük a jelszó-visszaállító levelet.');}
+  catch(error){authMessage(error.message||'Nem sikerült elküldeni a levelet.');}
+  finally{button.disabled=false;}
+});
+$('#newPasswordForm').addEventListener('submit',async event=>{
+  event.preventDefault(); if(!supabase)return;
+  const button=$('#newPasswordForm button[type=submit]'); button.disabled=true; authMessage('Jelszó mentése…');
+  try{const {error}=await supabase.auth.updateUser({password:$('#newPassword').value});if(error)throw error;history.replaceState(null,'',window.location.pathname);authMessage('A jelszó frissült. Most már bejelentkezhetsz az új jelszóval.');await supabase.auth.signOut();showAuthForm('loginForm');}
+  catch(error){authMessage(error.message||'A jelszó frissítése nem sikerült.');}
+  finally{button.disabled=false;}
+});
+$('#logoutBtn').addEventListener('click',async()=>{if(!supabase)return;const {error}=await supabase.auth.signOut();if(error)toast(error.message);});
+await initializeAuth();
+let lang='hu', pending=[
+{id:1,title:'30 napos tartalomnaptár – termékleírás',desc:'Termékoldal szövegének előkészítése. Közzététel előtt ellenőrizd az állításokat és az árat.'},
+{id:2,title:'Social Start – bemutatkozó poszt',desc:'Marketingposzt piszkozatának előkészítése. Külső közzététel még nem történt.'}
+];
+function toast(t){let el=$('#toast');el.textContent=t;el.style.display='block';setTimeout(()=>el.style.display='none',2600)}
+function showPage(id){$$('.section').forEach(x=>x.classList.toggle('active',x.id===id));$$('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===id));let titles={dashboard:['Üdv a MARKAI-ban!','A vállalkozásod központi vezérlőpultja.'],assistant:['MARKAI Brain','AI-feladatok előkészítése'],products:['Digitális termékek','Termékötletek és ajánlatok'],services:['AI-szolgáltatások','Szolgáltatáscsomagok'],approvals:['Jóváhagyási központ','Te tartod kézben a fontos döntéseket.'],finance:['Pénzügyi központ','Bevételek és kifizetési szabályok']};$('#pageTitle').textContent=titles[id][0];$('#pageSub').textContent=titles[id][1];}
+$('#nav').addEventListener('click',e=>{let b=e.target.closest('button[data-page]');if(b)showPage(b.dataset.page)});
+$('#quickApproval').onclick=()=>showPage('approvals');
+function updateApprovals(){let n=pending.length;$('#approvalCount').textContent=n;$('#pendingStat').textContent=n;$('#approvalList').innerHTML=n?pending.map(p=>`<div class="row"><div><strong>${p.title}</strong><small>${p.desc}</small></div><div class="actions"><button class="btn primary" onclick="approve(${p.id})">Jóváhagyás</button><button class="btn" onclick="reject(${p.id})">Elutasítás</button></div></div>`).join(''):'<div class="empty">Nincs függő jóváhagyás.</div>'}
+function approve(id){pending=pending.filter(p=>p.id!==id);updateApprovals();toast('Demó: jóváhagyás rögzítve. Külső művelet nem történt.')}
+function reject(id){pending=pending.filter(p=>p.id!==id);updateApprovals();toast('Demó: elutasítás rögzítve.')}
+async function reply(prompt,target){
+ if(!prompt.trim())return;
+ target.innerHTML+=`<div class="msg"><b>${lang==='hu'?'Te':'You'}:</b> ${escapeHtml(prompt)}</div>`;
+ const loading=document.createElement('div'); loading.className='msg'; loading.textContent=lang==='hu'?'MARKAI dolgozik…':'MARKAI is thinking…'; target.appendChild(loading); target.scrollTop=target.scrollHeight;
+ try{
+   const token=currentSession?.access_token;
+   if(!token) throw new Error('A művelethez jelentkezz be újra.');
+   const res=await fetch('/api/ai',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify({prompt,language:lang})});
+   const data=await res.json();
+   if(!res.ok) throw new Error(data.error||'API hiba');
+   loading.innerHTML='<b>MARKAI:</b> '+escapeHtml(data.text||'Nem érkezett válasz.');
+ }catch(err){
+   loading.innerHTML='<b>MARKAI:</b> '+escapeHtml((lang==='hu'?'Az AI-kapcsolat most nem érhető el: ':'AI connection unavailable: ')+err.message+' '+(lang==='hu'?'Ellenőrizd a szerver beállításait.':'Check the server configuration.'));
+ }
+ target.scrollTop=target.scrollHeight;
+}
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+$('#dashSend').onclick=()=>{reply($('#dashPrompt').value,$('#dashChat'));$('#dashPrompt').value=''};
+$('#dashPrompt').addEventListener('keydown',e=>{if(e.key==='Enter')$('#dashSend').click()});
+$('#fullSend').onclick=()=>{reply($('#fullPrompt').value,$('#fullChat'));$('#fullPrompt').value=''};
+$('#ideaBtn').onclick=()=>{$('#fullPrompt').value='Adj 3 alacsony költségű digitális termékötletet magyar mikrovállalkozóknak, célközönséggel, árazási hipotézissel és első marketinglépéssel.'};
+$$('.prepare').forEach(b=>b.onclick=()=>{let id=Date.now();pending.push({id,title:b.dataset.name+' – termékterv',desc:'AI által előkészítendő termékkoncepció. Ellenőrzés és jóváhagyás szükséges.'});updateApprovals();toast('Előkészítési kérés hozzáadva a jóváhagyásokhoz.');});
+$('#langBtn').onclick=()=>{lang=lang==='hu'?'en':'hu';$('#langBtn').textContent=lang==='hu'?'EN':'HU';$$('[data-hu]').forEach(el=>el.textContent=el.dataset[lang]);$$('input[placeholder]').forEach(el=>{if(el.id==='dashPrompt')el.placeholder=lang==='hu'?'Mit készítsek elő?':'What should I prepare?'});};
+updateApprovals();
+if ('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
+</script>
+</body></html>
