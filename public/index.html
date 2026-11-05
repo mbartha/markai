@@ -243,4 +243,51 @@ $('#langBtn').onclick=()=>{lang=lang==='hu'?'en':'hu';$('#langBtn').textContent=
 updateApprovals();
 if ('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
 </script>
+ <script>
+(function () {
+  const formIds = [
+    'loginForm',
+    'signupForm',
+    'resetRequestForm',
+    'newPasswordForm'
+  ];
+
+  function showForm(activeId) {
+    formIds.forEach(function (id) {
+      const form = document.getElementById(id);
+      if (!form) return;
+
+      const active = id === activeId;
+      form.hidden = !active;
+      form.style.display = active ? 'grid' : 'none';
+    });
+
+    const login = document.getElementById('showLogin');
+    const signup = document.getElementById('showSignup');
+    const forgot = document.getElementById('forgotPassword');
+    const back = document.getElementById('backToLogin');
+
+    if (login) login.classList.toggle('primary', activeId === 'loginForm');
+    if (signup) signup.classList.toggle('primary', activeId === 'signupForm');
+    if (forgot) forgot.hidden = activeId !== 'loginForm';
+    if (back) back.hidden = activeId === 'loginForm';
+
+    const tabs = document.getElementById('authTabs');
+    if (tabs) {
+      tabs.hidden = activeId === 'resetRequestForm' ||
+                    activeId === 'newPasswordForm';
+    }
+  }
+
+  document.getElementById('showLogin').addEventListener('click', function () {
+    showForm('loginForm');
+  });
+
+  document.getElementById('showSignup').addEventListener('click', function () {
+    showForm('signupForm');
+  });
+
+  showForm('loginForm');
+})();
+</script>
 </body></html>
